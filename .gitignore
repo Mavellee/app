@@ -1,0 +1,50 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native (generated from app.config.ts; never edit by hand)
+/ios
+/android
+.kotlin/
+*.orig.*
+
+# Signing keys and certificates: never commit
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# Firebase app config files: provided to builds through EAS environment variables
+google-services.json
+GoogleService-Info.plist
+
+# Metro
+.metro-health-check*
+
+# Tests
+coverage/
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+
+# local env files (.env.example is the committed template)
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
