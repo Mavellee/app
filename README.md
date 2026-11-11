@@ -54,7 +54,9 @@ Without Android Studio or Xcode, build the development app in the cloud instead:
 | `npm run bundle:check` | Bundles the JavaScript for Android and iOS to catch build errors |
 | `npm run doctor` | `expo-doctor`: dependency and config checks |
 
-CI runs all of these on every pull request to `main`.
+CI runs all of these on every pull request to `main`. One exception: when Expo releases a new patch version of a
+package, CI shows a warning instead of failing. To update, run `npx expo install --fix` on a branch and open a
+pull request.
 
 ## Builds and environments
 
