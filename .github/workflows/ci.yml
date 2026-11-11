@@ -38,8 +38,18 @@ jobs:
       - name: Tests
         run: npm test -- --ci
 
-      - name: Expo dependency check
+      - name: Expo project check
         run: npx expo-doctor@latest
+        env:
+          # Expo releases patch versions often, so this check alone must not fail the build.
+          # The next step reports outdated packages as a warning instead.
+          EXPO_DOCTOR_SKIP_DEPENDENCY_VERSION_CHECK: '1'
+
+      - name: Expo package versions (warning only)
+        run: |
+          if ! npx expo install --check; then
+            echo "::warning title=Expo packages out of date::Run 'npx expo install --fix' on a branch and open a pull request."
+          fi
 
       - name: Bundle for Android and iOS
         run: npm run bundle:check
